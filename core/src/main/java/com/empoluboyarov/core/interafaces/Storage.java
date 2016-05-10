@@ -1,4 +1,4 @@
-package com.empoluboyarov.core;
+package com.empoluboyarov.core.interafaces;
 
 import java.math.BigDecimal;
 import java.util.Currency;
