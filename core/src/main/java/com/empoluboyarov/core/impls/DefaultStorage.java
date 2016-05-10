@@ -1,5 +1,6 @@
 package com.empoluboyarov.core.impls;
 
+import com.empoluboyarov.core.abstracts.AbstractTreeNode;
 import com.empoluboyarov.core.exceptions.AmountException;
 import com.empoluboyarov.core.exceptions.CurrencyException;
 import com.empoluboyarov.core.interafaces.Storage;
@@ -14,9 +15,8 @@ import java.util.Map;
 /**
  * Created by Evgeniy on 10.05.2016.
  */
-public class DefaultStorage implements Storage {
+public class DefaultStorage extends AbstractTreeNode implements Storage {
 
-    private String name;
     private Map<Currency, BigDecimal> currencyAmounts = new HashMap<>();
     private List<Currency> currencyList = new ArrayList<>();
 
@@ -25,13 +25,13 @@ public class DefaultStorage implements Storage {
     }
 
     public DefaultStorage(String name) {
-        this.name = name;
+        super(name);
     }
 
     public DefaultStorage(List<Currency> currencyList, Map<Currency, BigDecimal> currencyAmounts, String name) {
+        super(name);
         this.currencyList = currencyList;
         this.currencyAmounts = currencyAmounts;
-        this.name = name;
     }
 
     public DefaultStorage(Map<Currency, BigDecimal> currencyAmounts) {
@@ -42,16 +42,9 @@ public class DefaultStorage implements Storage {
         this.currencyList = currencyList;
     }
 
-
-    @Override
-    public String getName() {
-        return name;
+    public DefaultStorage(String name, long id) {
+        super(name, id);
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 
     @Override
     public Map<Currency, BigDecimal> getCurrencyAmounts() {

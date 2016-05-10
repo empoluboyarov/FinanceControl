@@ -7,7 +7,9 @@ import java.util.List;
  */
 public interface TreeNode {
 
-    long getID(); // получение уникального идентификатора элемента
+    String getName();
+
+    long getId(); // получение уникального идентификатора элемента
 
     void add(TreeNode child); // добавление дочернего элемента
 
