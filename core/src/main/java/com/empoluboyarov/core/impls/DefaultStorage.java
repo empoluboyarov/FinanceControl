@@ -68,7 +68,7 @@ public class DefaultStorage implements Storage {
     public List<Currency> getAvailableCurrencies() {
         return currencyList;
     }
-    
+
     @Override
     public BigDecimal getAmount(Currency currency) throws CurrencyException {
         checkCurrencyExist(currency);
